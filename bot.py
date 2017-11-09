@@ -22,7 +22,10 @@ async def Lukas():
 @bot.command()
 async def server():
     await bot.say("Este servidor 'HGEsports' fue creado por @Lukas")
-
+ 
+@bot.command()
+async def badword():
+    await bot.say("Esto es mmg (bad word)")
 bot.run('Mzc3ODk5MzEwNTY3Nzg0NDYw.DOTptw.MLDHfxr-khaPL8SwNXb4D4gzuLI')
 
 #discord bot 
