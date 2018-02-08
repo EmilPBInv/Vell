@@ -25,9 +25,9 @@ async def meme():
 @bot.event
 async def on_message(message, timeout=10,):
     if message.content.startswith('ms'):
-        await my_bot.send_message(message.channel, 'Music Streaming isn\'t available just yet, sorry!', tts=True)
-        msg = await my_bot.wait_for_message(author=message.author, content='Hellooo')
-        await my_bot.send_message(message.channel, 'Hello.')
+        await bot.send_message(message.channel, 'Music Streaming isn\'t available just yet, sorry!', tts=True)
+        msg = await bot.wait_for_message(author=message.author, content='Hellooo')
+        await bot.send_message(message.channel, 'Hello.')
        
         
         
