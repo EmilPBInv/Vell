@@ -1,4 +1,4 @@
-#Vell Bot v0.1
+#Vell Bot v0.1  -------  Test rep, THIS IS NOT THE MAIN REP, IT IS PRIVATE!
 import discord 
 import os
 from discord.ext import commands
