@@ -4,7 +4,7 @@ import os
 from discord.ext import commands
 client = discord.Client()
 #-----------------------------#
-bot = commands.Bot(command_prefix='v.', description='General-purpose bot in beta phase for INV platform.')
+bot = commands.Bot(command_prefix='v.' && 'join.', description='General-purpose bot in beta phase for INV platform.')
 @bot.event
 async def bot_online():
     print('Bot: ')
@@ -16,20 +16,8 @@ async def link():
 async def beta():
     await bot.say("Beta phase, what else?!")
 @bot.command()
-async def devs():
-    await bot.say("Current Developers are: Alphi | Asher")
-@bot.command()
-async def meme():
-    await bot.say("Please choose a number from 1-4")
-   
-@bot.event()
-async def on_message(message, timeout=10,):
-    if message.content.startswith('ms'):
-        await bot.send_message(message.channel, 'Music Streaming isn\'t available just yet, sorry!', tts=True)
-        msg = await bot.wait_for_message(author=message.author, content='Hellooo')
-        await bot.send_message(message.channel, 'Hello.')
-       
-        
+async def supportserver():
+   await bot.say("https://discord.gg/pMXFPbM")
         
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
