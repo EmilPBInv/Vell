@@ -18,11 +18,11 @@ async def beta():
 @bot.command()
 async def devs():
     await bot.say("Current Developers are: Alphi | Asher")
- @bot.command()
- async def meme():
-     await bot.say("Please choose a number from 1-4")
-        
- @my_bot.event
+@bot.command()
+async def meme():
+    await bot.say("Please choose a number from 1-4")
+   
+@my_bot.event
 async def on_message(message, timeout=10,):
     if message.content.startswith('ms'):
         await my_bot.send_message(message.channel, 'Music Streaming isn\'t available just yet, sorry!', tts=True)
