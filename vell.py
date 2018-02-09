@@ -36,7 +36,7 @@ async def on_message(message):
     
 @bot.command()
 async def git():
-    await bot.say("https://github.com/ " + "jdcoding01")
+    await bot.say("https://github.com/" + "jdcoding01")
     
     
 token = os.environ.get("TOKEN")
