@@ -9,9 +9,9 @@ str(now.month) + "/" +str(now.day) + "/" + str(now.year) + "/"
 #-----------------------------#
 bot = commands.Bot(command_prefix=['v.', 'join.'], description='General-purpose bot in beta phase for INV platform.')
 @bot.event
-async def bot_online():
-    print('Bot: ')
-    print(bot.user.name)
+async def on_ready():
+    print('Bot is ready for use')
+    await client.change_presence(game = discord.Game(name="v.help",type =0))
 @bot.command()
 async def karmaguild():
     await bot.say("Karma Recruitment Center Invite Link: <https://discord.gg/BYc3Der>")
@@ -26,14 +26,6 @@ async def supportserver():
 async def date():
     await bot.say(now)
 
-@client.event
-async def on_message(message):
-    if message.content.startswith('!embedd'):
-        embed = discord.Embed(title="Tile", description="Desc", color=0x00ff00)
-        embed.add_field(name="Alphi", value="hi", inline=False)
-        embed.add_field(name="Asher", value="hi2", inline=False)
-        await client.send_message(message.channel, embed=embed)    
-    
 @bot.command()
 async def git():
     await bot.say("https://github.com/" + "jdcoding01")
