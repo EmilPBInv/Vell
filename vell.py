@@ -34,7 +34,9 @@ async def on_message(message):
         embed.add_field(name="Asher", value="hi2", inline=False)
         await client.send_message(message.channel, embed=embed)    
     
-    
+@bot.command()
+async def git():
+    await bot.say("https://github.com/ " + "jdcoding01")
     
     
 token = os.environ.get("TOKEN")
