@@ -25,6 +25,18 @@ async def supportserver():
 @bot.command()
 async def date():
     await bot.say(now)
+
+@client.event
+async def on_message(message):
+    if message.content.startswith('!embedd'):
+        embed = discord.Embed(title="Tile", description="Desc", color=0x00ff00)
+        embed.add_field(name="Alphi", value="hi", inline=False)
+        embed.add_field(name="Asher", value="hi2", inline=False)
+        await client.send_message(message.channel, embed=embed)    
+    
+    
+    
+    
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
 #bot link https://discordapp.com/oauth2/authorize?client_id=397217109035450368&scope=bot&permissions=0
