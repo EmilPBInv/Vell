@@ -4,7 +4,7 @@ import os
 from discord.ext import commands
 client = discord.Client()
 #-----------------------------#
-bot = commands.Bot(command_prefix='v.', description='General-purpose bot in beta phase for INV platform.')
+bot = commands.Bot(command_prefix=['v.', 'join.'], description='General-purpose bot in beta phase for INV platform.')
 @bot.event
 async def bot_online():
     print('Bot: ')
@@ -15,7 +15,7 @@ async def karmaguild():
 @bot.command()
 async def beta():
     await bot.say("Beta phase, what else?!")
-@bot.comamnd()
+@bot.command()
 async def supportserver():
     await bot.say("https://discord.gg/pMXFPbM")
         
