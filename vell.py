@@ -26,8 +26,7 @@ async def help(ctx):
     embed.set_footer(text="Embed-This!")
     await bot.say(embed=embed)
 
-@bot.command(pass_context=True)
-@commands.has_role(embed_role)
+
 
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
