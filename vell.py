@@ -2,7 +2,7 @@
 import os
 # CONFIG
 # --------- #
-prefix = ['v.', 'join.'] # This will be used at the start of commands.
+prefix = ['v.', 'join.', 'mod.'] # This will be used at the start of commands.
 embed_role = "Vell" # The role in your server used for embedding.
 game = "Type v.help" # This will display as the game on Discord.
 # ---------- #
@@ -10,11 +10,11 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
 global misc_commands
-misc_commands = "~beta", "~supportserver"
+misc_commands = ("~beta", "~supportserver")
 global command_help
 command_help = "For more info on a command type v.commandhelp where command is the name of it. Ex: v.betahelp"
 global music_commands
-music_commands = "In progress, not available yet..."
+music_commands = ("In progress, not available yet...")
 global mod_commands
 mod_commands = "emoji", "text", "nsfw"
 bot = commands.Bot(command_prefix=prefix)
@@ -27,7 +27,7 @@ async def on_ready():
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver!", color=0x00a0ea)
-    embed.set_thumbnail(url = "https://www.google.com.do/search?q=help+png+logo&rlz=1CASMAI_enDO782DO782&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiyuPzz9qPZAhUpAcAKHaUKDM8Q_AUICigB&biw=1366&bih=629#imgrc=CdDEoMFiYlNvQM:")
+    embed.set_thumbnail(url = "https://www.freepik.com/free-icon/info-logo-in-a-circle_692769.htm")
     embed.add_field(name="Miscellaneous Commands".format("null"), value=misc_commands, inline=False)
     embed.add_field(name="Music Commands".format("null"), value=music_commands, inline=False)
     embed.add_field(name="Commands Help".format("null"), value=command_help)
@@ -38,9 +38,27 @@ async def help(ctx):
 async def betahelp(ctx):
     embed = discord.Embed(title="Info for the <beta> command", description="Beta command displays a text..", color=0x00a0ea)
     await bot.say(embed=embed)
+@bot.command(pass_context=True)
+async def emoji(ctx):
+    embed = discord.Embed(title="Info for the <emoji> moderator command", description="Sends a text warning regarding the misuse of server emojis.", color=0x00a0ea)
+    await bot.say(embed=embed)
+@bot.command(pass_context=True)
+async def text(ctx):
+    embed = discord.Embed(title="Info for the <text> moderator command", description="Sends a text warning regarding the bad behavior with texts. Like harrasing or bullying.", color=0x00a0ea)
+    await bot.say(embed=embed)
+@bot.command(pass_context=True)
+async def nsfw(ctx):
+    embed = discord.Embed(title="Info for the <nsfw> moderator command", description="Sends a text warning regarding the use of NSFW or innappropiate language outside of the NSFW channel.", color=0x00a0ea)
+    await bot.say(embed=embed)
 @bot.command()
-async def emojimoderate():
+async def emoji():
     await bot.say("```Please, do not use an emoji repeatedly or in an annoying way, as this might result in a ban.```")
+@bot.command()
+async def text():
+    await bot.say("```The texts you're sending right now are inappropiate, please stop or you might be kicked from the server.```")
+@bot.command()
+async def nsfw():
+    await bot.say("```That message is considered NSFW, which is not allowed in this channel. It will be removed immediately, if you persist you will earn a kick or ban as the responsible MOD considers it.```")
 @bot.command()
 async def invite():
     await bot.say("Invite me with this link: " + "https://discordapp.com/oauth2/authorize?client_id=368592012116623362&scope=bot&permissions=8")
