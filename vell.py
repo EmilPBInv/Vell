@@ -20,6 +20,16 @@ mod_commands = "emoji", "text", "nsfw"
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 
+@client.command(pass_context=True)
+async def play(ctx, url):
+
+    author = ctx.message.author
+    voice_channel = author.voice_channel
+    vc = await client.join_voice_channel(voice_channel)
+
+    player = await vc.create_ytdl_player(url)
+    player.start()
+   
 @bot.event
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="Type v.help for help, duh..."))
