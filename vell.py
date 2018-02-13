@@ -30,6 +30,11 @@ async def date():
 async def git():
     await bot.say("https://github.com/" + "jdcoding01")
     
+logs = yield from client.logs_from(channel)
+for message in logs:
+    if message.content.startswith('v.'):
+        if message.author == client.user:
+            yield from client.edit_message(message, 'Weather test...')
     
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
