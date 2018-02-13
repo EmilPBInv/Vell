@@ -39,15 +39,15 @@ async def betahelp(ctx):
     embed = discord.Embed(title="Info for the <beta> command", description="Beta command displays a text..", color=0x00a0ea)
     await bot.say(embed=embed)
 @bot.command(pass_context=True)
-async def emoji(ctx):
+async def emojihelp(ctx):
     embed = discord.Embed(title="Info for the <emoji> moderator command", description="Sends a text warning regarding the misuse of server emojis.", color=0x00a0ea)
     await bot.say(embed=embed)
 @bot.command(pass_context=True)
-async def text(ctx):
+async def texthelp(ctx):
     embed = discord.Embed(title="Info for the <text> moderator command", description="Sends a text warning regarding the bad behavior with texts. Like harrasing or bullying.", color=0x00a0ea)
     await bot.say(embed=embed)
 @bot.command(pass_context=True)
-async def nsfw(ctx):
+async def nsfwhelp(ctx):
     embed = discord.Embed(title="Info for the <nsfw> moderator command", description="Sends a text warning regarding the use of NSFW or innappropiate language outside of the NSFW channel.", color=0x00a0ea)
     await bot.say(embed=embed)
 @bot.command()
