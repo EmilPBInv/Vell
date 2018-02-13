@@ -10,11 +10,11 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
 global misc_commands
-misc_commands = ("~beta", "~supportserver")
+misc_commands = ["beta", "~supportserver"]
 global command_help
 command_help = "For more info on a command type v.commandhelp where command is the name of it. Ex: v.betahelp"
 global music_commands
-music_commands = ("In progress, not available yet...")
+music_commands = ["In progress, not available yet..."]
 global mod_commands
 mod_commands = "emoji", "text", "nsfw"
 bot = commands.Bot(command_prefix=prefix)
@@ -26,7 +26,7 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def help(ctx):
-    embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver!", color=0x00a0ea)
+    embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
     embed.set_thumbnail(url = "https://www.freepik.com/free-icon/info-logo-in-a-circle_692769.htm")
     embed.add_field(name="Miscellaneous Commands".format("null"), value=misc_commands, inline=False)
     embed.add_field(name="Music Commands".format("null"), value=music_commands, inline=False)
