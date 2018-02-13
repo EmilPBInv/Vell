@@ -19,13 +19,16 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def help(ctx):
-    embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need.Not satisfied? Type join.supportserver", color=0x00a0ea)
-    embed.add_field(name="{}embed".format(prefix), value=".")
-    embed.add_field(name="{}rembed".format(prefix), value="Let's you embed with more user input. After entering your message the bot will ask questions about the color and thumbnail.")
-    embed.set_footer(text="Embed-This!")
+    embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver!", color=0x00a0ea)
+    embed.add_field(name="{}embed".format("Miscellaneous Commands"), value=misc_commands)
+    embed.add_field(name="{}rembed".format("Music Commands"), value="In progress...")
+    embed.add_field(name="{}rembed".format("Command Help"), value="For info on a specific command type info-nameofthecommand")
+    embed.set_footer(text="Vell Bot ~ Developed by Alphi#5113")
     await bot.say(embed=embed)
-
-
+@bot.command(pass_context=True)
+async def beta(ctx):
+    embed = discord.Embed(title="Info for the <beta> command", description="Beta command displays a text..", color=0x00a0ea)
+    await bot.say(embed=embed)
 
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
