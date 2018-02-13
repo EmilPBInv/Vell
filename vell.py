@@ -16,12 +16,12 @@ bot.remove_command("help")
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(game=discord.Game(name=game))
+    await bot.change_presence(game=discord.Game(name="Type v.help"))
 
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver!", color=0x00a0ea)
-    embed.add_field(name="{}embed".format("Miscellaneous Commands"), value=misc_commands)
+    embed.add_field(name="Hey".format("Miscellaneous Commands"), value=misc_commands)
     embed.add_field(name="{}rembed".format("Music Commands"), value="In progress...")
     embed.add_field(name="{}rembed".format("Command Help"), value="For info on a specific command type info-nameofthecommand")
     embed.set_footer(text="Vell Bot ~ Developed by Alphi#5113")
