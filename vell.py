@@ -38,6 +38,12 @@ async def betahelp(ctx):
 @bot.command()
 async def emojimoderate():
     await bot.say("```Please, do not use an emoji repeatedly or in an annoying way, as this might result in a ban.```")
+@bot.command()
+async def invite():
+    await bot.say("Invite me with this link: " + "https://discordapp.com/oauth2/authorize?client_id=368592012116623362&scope=bot&permissions=8")
+@bot.command()
+async def supportserver():
+    await bot.say("Support server: https://discord.gg/YAZNjbe")
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
-#bot link https://discordapp.com/oauth2/authorize?client_id=397217109035450368&scope=bot&permissions=0
+#bot link https://discordapp.com/oauth2/authorize?client_id=368592012116623362&scope=bot&permissions=8
