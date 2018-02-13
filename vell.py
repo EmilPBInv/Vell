@@ -2,10 +2,9 @@
 import os
 # CONFIG
 # --------- #
-token = "TOKEN_HERE" # This is what the bot uses to log into Discord.
-prefix = "!" # This will be used at the start of commands.
+prefix = ['v.', 'join.'] # This will be used at the start of commands.
 embed_role = "ROLE_NAME_HERE" # The role in your server used for embedding.
-game = "with embeds!" # This will display as the game on Discord.
+game = "Type v.help" # This will display as the game on Discord.
 # ---------- #
 from discord.ext import commands
 from discord.ext.commands import Bot
