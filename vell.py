@@ -34,7 +34,7 @@ async def weather():
     await bot.say("https://weather.com/weather/tenday/l/DRXX0022:1:DR")
     
 @bot.command() 
-async def help(self, ctx, *,args):
+async def helpme(self, ctx, *,args):
     em = discord.Embed()
     general = "This is one section"
     sec = "this is another"
