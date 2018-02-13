@@ -10,20 +10,23 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
 global misc_commands
-misc_commands = "In progress..."
+misc_commands = "beta"
+global command_help
+command_help = "For more info on a command type v.commandhelp where command is the name of it. Ex: v.betahelp"
+global music_commands = "In progress, not available yet..."
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 
 @bot.event
 async def on_ready():
-    await bot.change_presence(game=discord.Game(name="Type v.help"))
+    await bot.change_presence(game=discord.Game(name="Type v.help for help, duh..."))
 
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver!", color=0x00a0ea)
-    embed.add_field(name="Hey".format("Miscellaneous Commands"), value=misc_commands)
-    embed.add_field(name="{}rembed".format("Music Commands"), value="In progress...")
-    embed.add_field(name="{}rembed".format("Command Help"), value="For info on a specific command type info-nameofthecommand")
+    embed.add_field(name="Miscellaneous Commands".format("null"), value=misc_commands)
+    embed.add_field(name="Music Commands".format("null"), value=music_commands)
+    embed.add_field(name="Commands Help".format("null"), value=command_help)
     embed.set_footer(text="Vell Bot ~ Developed by Alphi#5113")
     await bot.say(embed=embed)
 @bot.command(pass_context=True)
