@@ -10,7 +10,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
 global misc_commands
-misc_commands = ["beta", "~supportserver"]
+misc_commands = ["beta", "supportserver"]
 global command_help
 command_help = "For more info on a command type v.commandhelp where command is the name of it. Ex: v.betahelp"
 global music_commands
