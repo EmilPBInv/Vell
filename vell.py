@@ -1,48 +1,104 @@
 #Vell Bot v0.1  -------  Test rep, THIS IS NOT THE MAIN REP, IT IS PRIVATE!
-import discord 
 import os
-from discord.ext import commands
+# CONFIG
+# --------- #
+token = "TOKEN_HERE" # This is what the bot uses to log into Discord.
+prefix = "!" # This will be used at the start of commands.
+embed_role = "ROLE_NAME_HERE" # The role in your server used for embedding.
+game = "with embeds!" # This will display as the game on Discord.
 client = discord.Client()
-from datetime import datetime
-now = datetime.now()
-str(now.month) + "/" +str(now.day) + "/" + str(now.year) + "/"
-#-----------------------------#
-bot = commands.Bot(command_prefix=['v.', 'join.'], description='General-purpose bot in beta phase for INV platform.')
-@bot.command() #ignore this part .-.
+# ---------- #
+from discord.ext import commands
+from discord.ext.commands import Bot
+import discord, chalk
+
+bot = commands.Bot(command_prefix=prefix)
+bot.remove_command("help")
+
+@bot.event
 async def on_ready():
-    print('Bot is ready for use')
-    await client.change_presence(game = discord.Game(name="v.help",type =0))
-@bot.command()
-async def karmaguild():
-    await bot.say("Karma Recruitment Center Invite Link: <https://discord.gg/BYc3Der>")
-@bot.command()
-async def beta():
-    await bot.say("Beta phase, what else?!")
-@bot.command()
-async def supportserver():
-    await bot.say("https://discord.gg/pMXFPbM")
+    chalk.blue ("Ready when you are. ;)") 
+    chalk.blue ("Name: {}".format(bot.user.name))
+    chalk.blue ("ID: {}".format(bot.user.id))
+    await bot.change_presence(game=discord.Game(name=game))
 
-@bot.command()
-async def date():
-    await bot.say(now)
+@bot.command(pass_context=True)
+async def help(ctx):
+    embed = discord.Embed(title="Help!", description="Basically, this is how I'm used.", color=0x00a0ea)
+    embed.add_field(name="{}embed".format(prefix), value="Creates a quick embed with the users input after the command is called.")
+    embed.add_field(name="{}rembed".format(prefix), value="Let's you embed with more user input. After entering your message the bot will ask questions about the color and thumbnail.")
+    embed.set_footer(text="Embed-This!")
+    await bot.say(embed=embed)
 
-@bot.command()
-async def git():
-    await bot.say("https://github.com/" + "jdcoding01")
-@bot.command()
-async def weather():
-    await bot.say("https://weather.com/weather/tenday/l/DRXX0022:1:DR")
-    
-@bot.command() 
-async def helpme(self, ctx, *,args):
-    em = discord.Embed()
-    general = "This is one section"
-    sec = "this is another"
-    em.add_file(name = "1. <whatever name you want>", value = general, inline = False) #inline is the way it will be displayed, difference can be seen when more than 2 fields with inline True/False
-    #can add more fields similarly assign values like sec as declared
-    #you can add author using em.set_author(name = "Help Menu")
-    #images etc , its above one of my last messages.
-    await bot.say(embed = em)#sending the embed    
+@bot.command(pass_context=True)
+@commands.has_role(embed_role)
+async def rembed(ctx, *, a_sMessage):
+    color = None
+    thumb = None
+    embed_color = discord.Embed(title="🕑 Tick-Tock", description="Would you like to use a **custom color**? If **yes**, state it. If **no** simply say *no*.", color=0xffff00)
+    embed_color.set_footer(text="Simply type a color name such as green in plaintext.")
+    embed_thumb = discord.Embed(title="🕑 Tick-Tock", description="Would you like to use a **custom thumbnail**? If **yes**, state it. If **no** simply say *no*.", color=0xffff00)
+    embed_thumb.set_footer(text="Simply type an image URL such as https://da532.com/img/avatar.png in plaintext.")
+    await bot.delete_message(ctx.message)
+    ques1 = await bot.say(embed=embed_color)
+    ques1
+    msg = await bot.wait_for_message(author=ctx.message.author, timeout=60)
+    if msg.content.lower() == "green":
+        await bot.delete_message(ques1)
+        await bot.delete_message(msg)
+        color = 0x00ff00
+        ques2 = await bot.say(embed=embed_thumb)
+        ques2
+    elif msg.content.lower() == "yellow":
+        await bot.delete_message(ques1)
+        await bot.delete_message(msg)
+        color = 0xFFFF00
+        ques2 = await bot.say(embed=embed_thumb)
+        ques2
+    elif msg.content.lower() == "blue":
+        await bot.delete_message(ques1)
+        await bot.delete_message(msg)
+        color = 0x0000ff
+        ques2 = await bot.say(embed=embed_thumb)
+        ques2
+    elif msg.content.lower() == "red":
+        await bot.delete_message(ques1)
+        await bot.delete_message(msg)
+        color = 0xff0000
+        ques2 = await bot.say(embed=embed_thumb)
+        ques2
+    else:
+        await bot.delete_message(ques1)
+        await bot.delete_message(msg)
+        color = 0x00a0ea
+        ques2 = await bot.say(embed=embed_thumb)
+        ques2
+    msg = await bot.wait_for_message(author=ctx.message.author, timeout=60)
+    if msg.content.lower() == "no":
+        await bot.delete_message(ques2)
+        await bot.delete_message(msg)
+        thumb = ctx.message.author.avatar_url
+    else:
+        await bot.delete_message(ques2)
+        await bot.delete_message(msg)
+        thumb = msg.content
+    embed = discord.Embed(description=a_sMessage, color=color)
+    embed.set_thumbnail(url=thumb)
+    embed.set_author(name=ctx.message.author.name + " says..")
+    embed.set_footer(text="Embed-This!")
+    await bot.say(embed=embed)
+    chalk.green(ctx.message.author.name + " has embedded a message in " + ctx.message.server.name)
+
+@bot.command(pass_context=True)
+@commands.has_role(embed_role)
+async def embed(ctx, *, a_sMessage):
+    embed = discord.Embed(description=a_sMessage, color=0x00a0ea)
+    embed.set_thumbnail(url=ctx.message.author.avatar_url)
+    embed.set_author(name=ctx.message.author.name + " says..")
+    embed.set_footer(text="Embed-This!")
+    await bot.delete_message(ctx.message)
+    await bot.say(embed=embed)
+    chalk.green(ctx.message.author.name + " has embedded a message in " + ctx.message.server.name)   
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
 #bot link https://discordapp.com/oauth2/authorize?client_id=397217109035450368&scope=bot&permissions=0
