@@ -23,8 +23,8 @@ async def on_ready():
 
 @bot.command(pass_context=True)
 async def help(ctx):
-    embed = discord.Embed(title="Help!", description="Basically, this is how I'm used.", color=0x00a0ea)
-    embed.add_field(name="{}embed".format(prefix), value="Creates a quick embed with the users input after the command is called.")
+    embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need.Not satisfied? Type join.supportserver", color=0x00a0ea)
+    embed.add_field(name="{}embed".format(prefix), value=".")
     embed.add_field(name="{}rembed".format(prefix), value="Let's you embed with more user input. After entering your message the bot will ask questions about the color and thumbnail.")
     embed.set_footer(text="Embed-This!")
     await bot.say(embed=embed)
@@ -86,7 +86,7 @@ async def rembed(ctx, *, a_sMessage):
     embed.set_author(name=ctx.message.author.name + " says..")
     embed.set_footer(text="Embed-This!")
     await bot.say(embed=embed)
-    chalk.green(ctx.message.author.name + " has embedded a message in " + ctx.message.server.name)
+    await bot.say(ctx.message.author.name + " has embedded a message in " + ctx.message.server.name)
 
 @bot.command(pass_context=True)
 @commands.has_role(embed_role)
