@@ -3,7 +3,7 @@ import os
 # CONFIG
 # --------- #
 prefix = ['v.', 'join.'] # This will be used at the start of commands.
-embed_role = "ROLE_NAME_HERE" # The role in your server used for embedding.
+embed_role = "Vell" # The role in your server used for embedding.
 game = "Type v.help" # This will display as the game on Discord.
 # ---------- #
 from discord.ext import commands
