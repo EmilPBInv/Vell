@@ -8,7 +8,7 @@ now = datetime.now()
 str(now.month) + "/" +str(now.day) + "/" + str(now.year) + "/"
 #-----------------------------#
 bot = commands.Bot(command_prefix=['v.', 'join.'], description='General-purpose bot in beta phase for INV platform.')
-@bot.event()
+@bot.command() #ignore this part .-.
 async def on_ready():
     print('Bot is ready for use')
     await client.change_presence(game = discord.Game(name="v.help",type =0))
