@@ -10,7 +10,7 @@ from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
 global misc_commands
-misc_commands = "beta"
+misc_commands = ["~beta", "~supportserver"]
 global command_help
 command_help = "For more info on a command type v.commandhelp where command is the name of it. Ex: v.betahelp"
 global music_commands
@@ -31,7 +31,7 @@ async def help(ctx):
     embed.set_footer(text="Vell Bot ~ Developed by Alphi#5113")
     await bot.say(embed=embed)
 @bot.command(pass_context=True)
-async def beta(ctx):
+async def betahelp(ctx):
     embed = discord.Embed(title="Info for the <beta> command", description="Beta command displays a text..", color=0x00a0ea)
     await bot.say(embed=embed)
 @bot.command()
