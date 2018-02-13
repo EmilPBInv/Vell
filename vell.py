@@ -13,7 +13,8 @@ global misc_commands
 misc_commands = "beta"
 global command_help
 command_help = "For more info on a command type v.commandhelp where command is the name of it. Ex: v.betahelp"
-global music_commands = "In progress, not available yet..."
+global music_commands
+music_commands = "In progress, not available yet..."
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 
