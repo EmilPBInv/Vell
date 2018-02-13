@@ -25,7 +25,7 @@ async def on_ready():
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver!", color=0x00a0ea)
-     embed.set_thumbnail(url = self.bot.user.avatar_url)
+    embed.set_thumbnail(url = self.bot.user.avatar_url)
     embed.add_field(name="Miscellaneous Commands".format("null"), value=misc_commands, inline=False)
     embed.add_field(name="Music Commands".format("null"), value=music_commands)
     embed.add_field(name="Commands Help".format("null"), value=command_help)
