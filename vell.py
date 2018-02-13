@@ -9,7 +9,8 @@ game = "Type v.help" # This will display as the game on Discord.
 from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
-
+global misc_commands
+misc_commands = "In progress..."
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 
