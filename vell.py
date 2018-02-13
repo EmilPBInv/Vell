@@ -29,7 +29,9 @@ async def help(ctx):
 async def beta(ctx):
     embed = discord.Embed(title="Info for the <beta> command", description="Beta command displays a text..", color=0x00a0ea)
     await bot.say(embed=embed)
-
+@bot.command()
+async def emojimoderate():
+    await bot.say("```Please, do not use an emoji repeatedly or in an annoying way, as this might result in a ban.```")
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
 #bot link https://discordapp.com/oauth2/authorize?client_id=397217109035450368&scope=bot&permissions=0
