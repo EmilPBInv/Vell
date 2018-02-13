@@ -33,6 +33,16 @@ async def git():
 async def weather():
     await bot.say("https://weather.com/weather/tenday/l/DRXX0022:1:DR")
     
+@bot.command() 
+async def help(self, ctx, *,args):
+    em = discord.Embed()
+    general = "This is one section"
+    sec = "this is another"
+    em.add_file(name = "1. <whatever name you want>", value = general, inline = False) #inline is the way it will be displayed, difference can be seen when more than 2 fields with inline True/False
+    #can add more fields similarly assign values like sec as declared
+    #you can add author using em.set_author(name = "Help Menu")
+    #images etc , its above one of my last messages.
+    await bot.say(embed = em)#sending the embed    
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
 #bot link https://discordapp.com/oauth2/authorize?client_id=397217109035450368&scope=bot&permissions=0
