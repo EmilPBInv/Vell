@@ -9,7 +9,6 @@ game = "Type v.help" # This will display as the game on Discord.
 from discord.ext import commands
 from discord.ext.commands import Bot
 import discord
-client = discord.Client()
 global misc_commands
 misc_commands = ["beta", "supportserver"]
 global command_help
@@ -21,7 +20,7 @@ mod_commands = "emoji", "text", "nsfw"
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 
-@client.command(pass_context=True)
+@bot.command(pass_context=True)
 async def play(ctx, url):
 
     author = ctx.message.author
