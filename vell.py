@@ -7,7 +7,6 @@ embed_role = "Vell" # The role in your server used for embedding.
 game = "Type v.help" # This will display as the game on Discord.
 # ---------- #
 from discord.voice_client import VoiceClient
-startup_extensions = ["Music"]
 from discord.ext import commands
 import asyncio
 from discord.ext.commands import Bot
@@ -71,16 +70,7 @@ async def invite():
 async def supportserver():
     await bot.say("Support server: https://discord.gg/YAZNjbe")
     
-class Main_Commands():
-   def __init__(self, bot):
-      self.bot = bot
-if __name__ == "__main__":
-   for extension in startup_extensions:
-      try:
-         bot.load_extension(extension)
-      except Exception as e:
-         exc = '{}: {}'.format(type(e).__name__, e)
-         print('Failed to load extension {}\n{}'.format(extension, exc))
+
 
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
