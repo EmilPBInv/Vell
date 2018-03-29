@@ -1,5 +1,6 @@
 #Vell Bot v0.1  -------  Test rep, THIS IS NOT THE MAIN REP, IT IS PRIVATE!
 import os
+import VellMusic
 # CONFIG
 # --------- #
 prefix = ['v.', 'join.', 'mod.'] # This will be used at the start of commands.
