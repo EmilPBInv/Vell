@@ -28,10 +28,18 @@ bot.remove_command("help")
 @bot.event
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
-
-@bot.command(pass_context = True)
-async def kick(ctx, userName: discord.user):
- await bot.kick(userName)
+  
+@bot.command(pass_context=True)
+@checks.is_owner()
+async def kick(ctx, user:discord.Member, *, reason:str=None):
+    """Kicks someone from the server"""
+    if reason is None:
+        reason = "The ban hammer has spoken."
+        try:
+            await bot.kick(user)
+        except discord.errors.Forbidden:
+                await bot.say("Either I do no have permission, or you do not")
+                return
  
 @bot.command(pass_context=True)
 async def help(ctx):
