@@ -4,8 +4,7 @@ import aiohttp
 import asyncio
 import async_timeout
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(main())
+
 # CONFIG
 # --------- #
 prefix = ['v.', 'join.', 'mod.'] # This will be used at the start of commands.
@@ -42,6 +41,8 @@ async def news():
     async with aiohttp.ClientSession() as session:
         html = await fetch(session, 'http://aq3d.com/news')
         await bot.say(html)
+loop = asyncio.get_event_loop()
+loop.run_until_complete(news())
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
