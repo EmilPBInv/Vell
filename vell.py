@@ -88,9 +88,5 @@ async def supportserver():
 
       
       
-news = requests.get("https://aq3d.com/news")
-@bot.command()
-async def news():
-   await bot.say(news)
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
