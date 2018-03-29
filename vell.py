@@ -32,7 +32,7 @@ async def on_ready():
 news = requests.get("https://syph.me/api/aq3d/news/1")
 @bot.command()
 async def news():
- await bot.say(news)  
+ await bot.say("News ~ " + " https://syph.me/api/aq3d/news/1") 
   
   
   
