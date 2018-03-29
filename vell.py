@@ -69,4 +69,5 @@ async def invite():
 @bot.command()
 async def supportserver():
     await bot.say("Support server: https://discord.gg/YAZNjbe")
-os.environ.get("TOKEN")
+token = os.environ.get("TOKEN")
+bot.run(f'{token}')
