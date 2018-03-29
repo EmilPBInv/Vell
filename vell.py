@@ -12,14 +12,6 @@ import asyncio
 from discord.ext.commands import Bot
 import discord
 import requests
-@bot.command()
-async def status():
-    r = requests.get('http://www.aq3d.com/news')
-    json_data = json.loads(r.text)
-    status_server = json_data['status']
-    await bot.say('Status is {}'.format(status_server))
-
-
 global misc_commands
 misc_commands = ["beta", "supportserver"]
 global command_help
