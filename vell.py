@@ -39,10 +39,22 @@ async def kick(ctx, user:discord.Member, *, reason:str=None):
         except discord.errors.Forbidden:
                 await bot.say("Either I do no have permission, or you do not")
                 return
-channel = member.server.get_channel("336499566906179585")
-await bot.send_message(channel, ...)
 
+@bot.event
+async def on_member_join(member):
+    server = member.server.default_channel
+    fmt = 'Welcome to the {1.name} Discord server, {0.mention}, please read the 
+    rules and enjoy your stay.'
+    channel = member.server.get_channel("336499566906179585")
+    await bot.send_message(channel, fmt.format(member, member.server))
 
+@bot.event
+async def on_member_remove(member):
+    server = member.server.default_channel
+    fmt = '{0.mention} has left/been kicked/banned from the server.'
+    channel = member.server.get_channel("336499566906179585")
+    await bot.send_message(channel, fmt.format(member, member.server))   
+    
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
