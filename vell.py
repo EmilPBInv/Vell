@@ -8,11 +8,11 @@ async def fetch(session, url):
     async with async_timeout.timeout(10):
         async with session.get(url) as response:
             return await response.text()
-
-async def main():
+@bot.command
+async def news():
     async with aiohttp.ClientSession() as session:
         html = await fetch(session, 'http://aq3d.com/news')
-        print(html)
+        await bot.say(html)
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
