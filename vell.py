@@ -28,11 +28,10 @@ bot.remove_command("help")
 @bot.event
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
-admin = has_role("BotAdmin")
-if admin == True:
-     @bot.command(pass_context = True)
-     async def kick(ctx, userName: discord.User):
-        await bot.kick(userName)
+
+@bot.command(pass_context = True)
+async def kick(ctx, userName: discord.user):
+ await bot.kick(userName)
  
 @bot.command(pass_context=True)
 async def help(ctx):
