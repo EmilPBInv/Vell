@@ -30,7 +30,6 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
   
 @bot.command(pass_context=True)
-@checks.is_owner()
 async def kick(ctx, user:discord.Member, *, reason:str=None):
     """Kicks someone from the server"""
     if reason is None:
