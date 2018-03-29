@@ -1,5 +1,6 @@
 #Vell Bot v0.1  -------  Test rep, THIS IS NOT THE MAIN REP, IT IS PRIVATE!
 import os
+pip install requests
 import requests
 # CONFIG
 # --------- #
