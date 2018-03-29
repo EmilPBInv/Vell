@@ -43,8 +43,8 @@ async def kick(ctx, user:discord.Member, *, reason:str=None):
 @bot.event
 async def on_member_join(member):
     server = member.server.default_channel
-    fmt = 'Welcome to the {1.name} Discord server, {0.mention}, please read the 
-    rules and enjoy your stay.'
+    fmt = 'Welcome to the {1.name} Discord server, {0.mention}, please read the \
+    rules and enjoy your stay.' 
     channel = member.server.get_channel("336499566906179585")
     await bot.send_message(channel, fmt.format(member, member.server))
 
