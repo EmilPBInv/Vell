@@ -25,7 +25,7 @@ bot.remove_command("help")
    
 @bot.event
 async def on_ready():
-    await bot.change_presence(game=discord.Game(name="Type v.help for help, duh..."))
+    await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
 
 @bot.command(pass_context=True)
 async def help(ctx):
