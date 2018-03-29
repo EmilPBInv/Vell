@@ -39,7 +39,10 @@ async def kick(ctx, user:discord.Member, *, reason:str=None):
         except discord.errors.Forbidden:
                 await bot.say("Either I do no have permission, or you do not")
                 return
- 
+channel = member.server.get_channel("336499566906179585")
+await bot.send_message(channel, ...)
+
+
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
