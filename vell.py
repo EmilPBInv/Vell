@@ -12,12 +12,6 @@ import asyncio
 from discord.ext.commands import Bot
 import discord
 import requests
-news = requests.get("https://syph.me/api/aq3d/news/1")
-@bot.command()
-async def news():
- await bot.say(news)
-
-
 global misc_commands
 misc_commands = ["beta", "supportserver"]
 global command_help
@@ -29,11 +23,19 @@ mod_commands = "emoji", "text", "nsfw"
 bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 
+
  
 @bot.event
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
 
+news = requests.get("https://syph.me/api/aq3d/news/1")
+@bot.command()
+async def news():
+ await bot.say(news)  
+  
+  
+  
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
