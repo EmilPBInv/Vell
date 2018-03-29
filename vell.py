@@ -32,17 +32,6 @@ bot.remove_command("help")
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
 
-async def fetch(session, url):
-    async with async_timeout.timeout(10):
-        async with session.get(url) as response:
-            return await response.text()
-@bot.command
-async def news():
-    async with aiohttp.ClientSession() as session:
-        html = await fetch(session, 'http://aq3d.com/news')
-        await bot.say(html)
-loop = asyncio.get_event_loop()
-loop.run_until_complete(news())
 @bot.command(pass_context=True)
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
