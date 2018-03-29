@@ -1,14 +1,5 @@
 #Vell Bot v0.1  -------  Test rep, THIS IS NOT THE MAIN REP, IT IS PRIVATE!
 import os
-
-
-@bot.command()
-async def status():
-    r = requests.get('http://etcthewebsite')
-    json_data = json.loads(r.text)
-    status_server = json_data['status']
-    await bot.say('Status is {}'.format(status_server))
-
 # CONFIG
 # --------- #
 prefix = ['v.', 'join.', 'mod.'] # This will be used at the start of commands.
