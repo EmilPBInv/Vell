@@ -12,6 +12,12 @@ import asyncio
 from discord.ext.commands import Bot
 import discord
 import requests
+news = requests.get("https://syph.me/api/aq3d/news/1")
+@bot.command()
+async def news():
+ await bot.say(news)
+
+
 global misc_commands
 misc_commands = ["beta", "supportserver"]
 global command_help
