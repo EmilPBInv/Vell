@@ -37,7 +37,7 @@ async def kick(ctx, user:discord.Member, *, reason:str=None):
         try:
             await bot.kick(user)
         except discord.errors.Forbidden:
-                await bot.say("Either I do no have permission, or you do not... Please contact server admins if you should be able to.")
+                await bot.say("Either I do not have permission, or you do not... Please contact server admins if you should be able to.")
                 return
 
 @bot.event
