@@ -99,6 +99,27 @@ async def supportserver():
     await bot.say("Support server: https://discord.gg/YAZNjbe")
 
       
-      
+@bot.command(pass_context = True) 
+async def serverinfo(ctx):
+ server = ctx.message.server
+ roles = [x.name for x in server.role_hierarchy]
+ role_length = len(roles)
+if role_length > 50: 
+    roles = roles[:50]
+    roles.append('>>>> [50/%s] Roles'%len(roles))
+
+roles = ', '.join(roles);
+channelz = len(server.channels);
+time = str(server.created_at); time = time.split(' '); time= time[0];
+join = discord.Embed(description= '%s '%(str(server)),title = 'Server Name', colour = 0xFFFF);
+join.set_thumbnail(url = server.icon_url);
+join.add_field(name = '__Owner__', value = str(server.owner) + '\n' + server.owner.id);
+join.add_field(name = '__ID__', value = str(server.id))
+join.add_field(name = '__Member Count__', value = str(server.member_count));
+join.add_field(name = '__Text/Voice Channels__', value = str(channelz));
+join.add_field(name = '__Roles (%s)__'%str(role_length), value = roles);
+join.set_footer(text ='Created: %s'%time);
+
+return await bot.say(embed = join);
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
