@@ -30,21 +30,21 @@ async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
   
 @bot.command(pass_context=True)
-async def kick(ctx, user:discord.Member, *, reason:str=None):
+async def kick(ctx, user:discord.Member, *, reason:str=""):
     """Kicks someone from the server"""
     if reason is None:
         reason = "The ban hammer has spoken."
         try:
             await bot.kick(user)
         except discord.errors.Forbidden:
-                await bot.say("Either I do no have permission, or you do not")
+                await bot.say("Either I do no have permission, or you do not... Please contact server admins if you should be able to.")
                 return
 
 @bot.event
 async def on_member_join(member):
     server = member.server.default_channel
-    fmt = 'Welcome to the {1.name} Discord server, {0.mention}, please read the \
-    rules and enjoy your stay.' 
+    fmt = ':Karma: What goes around, must come back around. :Karma: Hey!{0.mention} Welcome to {1.name}. Please read #karma_page and #peerages \
+    Karma is now recruiting for dedicated players to blow through the game. Help us grow stronger and your karma will be served. May your blade run red with the blood of our enemies'
     channel = member.server.get_channel("336499566906179585")
     await bot.send_message(channel, fmt.format(member, member.server))
 
