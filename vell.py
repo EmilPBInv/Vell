@@ -119,7 +119,6 @@ join.add_field(name = '__Member Count__', value = str(server.member_count));
 join.add_field(name = '__Text/Voice Channels__', value = str(channelz));
 join.add_field(name = '__Roles (%s)__'%str(role_length), value = roles);
 join.set_footer(text ='Created: %s'%time);
-
-return await bot.say(embed = join);
+   return await bot.say(embed = join);
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
