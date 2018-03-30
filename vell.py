@@ -43,8 +43,7 @@ async def kick(ctx, user:discord.Member, *, reason:str=None):
 @bot.event
 async def on_member_join(member):
     server = member.server.default_channel
-    fmt = ':karma: What goes around, must come back around. :karma: Hey! {0.mention} Welcome to {1.name}. Please read #karma_page and #peerages \
-    Karma is now recruiting for dedicated players to blow through the game. Help us grow stronger and your karma will be served. May your blade run red with the blood of our enemies'
+    fmt = 'Hey! {0.mention} Welcome to {1.name}. Have a good time! And remember, always obey the rules!'
     channel = member.server.get_channel("336499566906179585")
     await bot.send_message(channel, fmt.format(member, member.server))
 
