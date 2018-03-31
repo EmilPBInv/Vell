@@ -37,16 +37,30 @@ class Main_Commands():
 @bot.command(pass_context=True)
 async def hello(ctx):
     await bot.say("Hey there! :wave:")
+
 @bot.command(pass_context=True)
 async def kick(ctx, user:discord.Member, *, reason:str=None):
     """Kicks someone from the server"""
     if reason is None:
-        reason = "The ban hammer has spoken."
+        reason = "The ban hammer has spoken. :ban:"
         try:
             await bot.kick(user)
         except discord.errors.Forbidden:
                 await bot.say("Either I do not have permission, or you do not... Please contact server admins if you should be able to.")
-                return
+                return "{0.mention} has been kicked from the server."
+                return reason
+@bot.command(pass_context=True)
+async def ban(ctx, user:discord.Member, *, reason:str=None):
+    """Bans someone from the server"""
+    if reason is None:
+        reason = "The ban hammer has spoken. :ban:"
+        try:
+            await bot.kick(user)
+        except discord.errors.Forbidden:
+                await bot.say("Either I do not have permission, or you do not... Please contact server admins if you should be able to.")
+                return "{0.mention} has been banned from the server."
+                return reason
+          
 
 @bot.event
 async def on_member_join(member):
@@ -89,6 +103,10 @@ async def texthelp(ctx):
 @bot.command(pass_context=True)
 async def nsfwhelp(ctx):
     embed = discord.Embed(title="Info for the <nsfw> moderator command", description="Sends a text warning regarding the use of NSFW or innappropiate language outside of the NSFW channel.", color=0x00a0ea)
+    await bot.say(embed=embed)
+@bot.command(pass_context=True)
+async def kickhelp(ctx):
+    embed = discord.Embed(title="Info for the <kick> moderator command", description="Kicks the @mentioned user fom the server. (Only for Admins/Owners/Mods", color=0x00a0ea)
     await bot.say(embed=embed)
 @bot.command()
 async def emoji():
