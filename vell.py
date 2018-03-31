@@ -53,9 +53,7 @@ async def on_member_remove(member):
     fmt = '{0.mention} has left/been kicked/banned from the server.'
     channel = member.server.get_channel("336499566906179585")
     await bot.send_message(channel, fmt.format(member, member.server))   
-@bot.event
-async def when_mentioned():
- await bot.say("Support server ~ https://discord.gg/YAZNjbe")
+
     
 @bot.command(pass_context=True)
 async def help(ctx):
