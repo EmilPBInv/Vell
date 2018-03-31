@@ -4,6 +4,7 @@ import youtube_dl
 
 # CONFIG
 # --------- #
+prefix = ["v.", "join.", "mod."]
 embed_role = "Vell" # The role in your server used for embedding.
 game = "Type v.help" # This will display as the game on Discord.
 # ---------- #
@@ -21,7 +22,7 @@ global music_commands
 music_commands = ["In progress, not available yet..."]
 global mod_commands
 mod_commands = "emoji", "text", "nsfw", "kick"
-bot = commands.Bot("v.")
+bot = commands.Bot(prefix=prefix)
 bot.remove_command("help")
 
 @bot.event
