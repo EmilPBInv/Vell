@@ -21,7 +21,7 @@ command_help = "For more info on a command type v.commandhelp where command is t
 global music_commands
 music_commands = ["In progress, not available yet..."]
 global mod_commands
-mod_commands = "emoji", "text", "nsfw", "kick"
+mod_commands = ["emoji", "text", "nsfw", "kick"]
 bot = commands.Bot(prefix=prefix)
 bot.remove_command("help")
 
