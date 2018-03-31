@@ -78,7 +78,11 @@ async def on_member_remove(member):
     channel = member.server.get_channel("429774341152964618")
     await bot.send_message(channel, fmt.format(member, member.server))   
 
-    
+@bot.command(pass_context=True)
+async def website(ctx)
+    embed1 = embed.discord.Embed(title="The official Vell website is located at: www.jdcoding7.wixsite.com/vellbot", description="Leave a comment!", colorr=0x00a0ea)
+    embed1.set_thumbnail(url= "https://thumb.ibb.co/c1yBAS/icon.jpg") 
+    await bot.say(embed=embed1)
 @bot.command(pass_context=True)
 async def help(ctx):
     
@@ -92,6 +96,7 @@ async def help(ctx):
     embed.add_field(name="Moderator Commands".format("null"), value=mod_commands)
     embed.set_footer(text="Vell Bot ~ Developed by Alphi#5113")
     await bot.say(embed=embed)
+
 @bot.command(pass_context=True)
 async def betahelp(ctx):
     embed = discord.Embed(title="Info for the <beta> command", description="Beta command displays a text..", color=0x00a0ea)
@@ -135,8 +140,6 @@ if __name__ == "__main__":
   except Exception as e:
    exc = '{}: {}'.format(type(e).__name__, e)
    print('Failed to load extension {}\n{}'.format(extension, exc))
-  
-  
   
 
 
