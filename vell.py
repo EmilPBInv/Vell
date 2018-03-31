@@ -79,7 +79,7 @@ async def on_member_remove(member):
     await bot.send_message(channel, fmt.format(member, member.server))   
 
 @bot.command(pass_context=True)
-async def website(ctx)
+async def website(ctx):
     embed1 = embed.discord.Embed(title="The official Vell website is located at: www.jdcoding7.wixsite.com/vellbot", description="Leave a comment!", colorr=0x00a0ea)
     embed1.set_thumbnail(url= "https://thumb.ibb.co/c1yBAS/icon.jpg") 
     await bot.say(embed=embed1)
