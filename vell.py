@@ -26,7 +26,8 @@ bot.remove_command("help")
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
     print("Bot online")
-  
+startup_extensions = ["Music"]
+    
 class Main_Commands():
  def __init__(self, bot):
   self.bot = bot
