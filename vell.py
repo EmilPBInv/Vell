@@ -19,7 +19,7 @@ global music_commands
 music_commands = ["In progress, not available yet..."]
 global mod_commands
 mod_commands = "emoji", "text", "nsfw", "kick"
-bot = commands.Bot("v.", "join.", "mod.")
+bot = commands.Bot("v.")
 bot.remove_command("help")
 
 #music
