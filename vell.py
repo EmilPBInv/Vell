@@ -22,12 +22,10 @@ mod_commands = "emoji", "text", "nsfw", "kick"
 bot = commands.Bot("v.")
 bot.remove_command("help")
 
-#music
-startup_extensions = ["Music"]
-
 @bot.event
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
+    print("Bot online")
   
 class Main_Commands():
  def __init__(self, bot):
