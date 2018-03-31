@@ -13,9 +13,9 @@ from discord.ext.commands import Bot
 import discord
 import requests
 global misc_commands
-misc_commands = ["beta", "supportserver"]
+misc_commands = ["supportserver"]
 global command_help
-command_help = "For more info on a command type v.commandhelp where command is the name of it. Ex: v.betahelp"
+command_help = "For more info on a command type v.commandhelp where command is the name of it. Ex: v.nsfwhelp"
 global music_commands
 music_commands = ["In progress, not available yet..."]
 global mod_commands
@@ -61,7 +61,7 @@ async def when_mentioned():
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
     embed.add_field(name="My prefixes".format("null"), value="v. for general commands|join. for joining support server|mod. for mod commands")
-    embed.set_thumbnail(url = "https://lh3.googleusercontent.com/nUmxup3NIuysFYvSY3HjPHM0UMplbj5ZaVZI5Z-gehjKxe9Fy-PRHnHCY0FCj-Fikq8W=s106")
+    embed.set_thumbnail(url = "https://ibb.co/c1yBAS")
     embed.add_field(name="Miscellaneous Commands".format("null"), value=misc_commands, inline=False)
     embed.add_field(name="Music Commands".format("null"), value=music_commands, inline=False)
     embed.add_field(name="Commands Help".format("null"), value=command_help)
