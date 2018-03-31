@@ -2,7 +2,6 @@
 import os
 # CONFIG
 # --------- #
-prefix = ['v.', 'join.', 'mod.'] # This will be used at the start of commands.
 embed_role = "Vell" # The role in your server used for embedding.
 game = "Type v.help" # This will display as the game on Discord.
 # ---------- #
@@ -20,15 +19,25 @@ global music_commands
 music_commands = ["In progress, not available yet..."]
 global mod_commands
 mod_commands = "emoji", "text", "nsfw", "kick"
-bot = commands.Bot(command_prefix=prefix)
+bot = commands.Bot("v.", "join.", "mod.")
 bot.remove_command("help")
 
+#music
+startup_extensions = ["Music"]
 
- 
 @bot.event
 async def on_ready():
     await bot.change_presence(game=discord.Game(name="Use v.help for help menu."))
   
+class Main_Commands():
+ def __init__(self, bot):
+  self.bot = bot
+  
+
+  
+@bot.command(pass_context=True)
+asynd def hello(ctx):
+    await bot.say("Hey there! :wave:")
 @bot.command(pass_context=True)
 async def kick(ctx, user:discord.Member, *, reason:str=None):
     """Kicks someone from the server"""
@@ -98,6 +107,21 @@ async def invite():
 async def supportserver():
     await bot.say("Support server: https://discord.gg/YAZNjbe")
 
+if __name__ == "__main__":
+ for extension in startup_extensions:
+  try:
+   bot.load_extension(extension)
+  except Exception as e:
+   exc = '{}: {}'.format(type(e).__name__, e)
+   print('Failed to load extension {}\n{}'.format(extension, exc))
+  
+  
+  
+  
+  
+  
+  
 
 token = os.environ.get("TOKEN")
 bot.run(f'{token}')
+
