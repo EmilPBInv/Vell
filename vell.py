@@ -67,22 +67,24 @@ async def ban(ctx, user:discord.Member, *, reason:str=None):
 @bot.event
 async def on_member_join(member):
     server = member.server.default_channel
-    fmt = 'Hey! {0.mention} Welcome to {1.name}. Have a good time! And remember, always obey the rules!'
-    channel = member.server.get_channel("336499566906179585")
+    fmt = 'Hey! {0.mention} Welcome to {1.name} the official support server for Vell Bot, any issues? Talk to us!'
+    channel = member.server.get_channel("410605613354319872")
     await bot.send_message(channel, fmt.format(member, member.server))
 
 @bot.event
 async def on_member_remove(member):
     server = member.server.default_channel
     fmt = '{0.mention} has left/been kicked/banned from the server.'
-    channel = member.server.get_channel("336499566906179585")
+    channel = member.server.get_channel("429774341152964618")
     await bot.send_message(channel, fmt.format(member, member.server))   
 
     
 @bot.command(pass_context=True)
 async def help(ctx):
+    
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
-    embed.add_field(name="My prefixes".format("null"), value="v. for general commands|join. for joining support server|mod. for mod commands")
+    embed.add_field(name="This is my website".format("null"), value="www.jdcoding7.wixsite.com/vellbot", color=0x00a0ea
+    embed.add_field(name="My prefixes".format("null"), value="v. for general commands | join. for joining support server |mod. for mod commands")
     embed.set_thumbnail(url = "https://thumb.ibb.co/c1yBAS/icon.jpg")
     embed.add_field(name="Miscellaneous Commands".format("null"), value=misc_commands, inline=False)
     embed.add_field(name="Music Commands".format("null"), value=music_commands, inline=False)
