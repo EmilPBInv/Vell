@@ -22,7 +22,7 @@ global music_commands
 music_commands = ["In progress, not available yet..."]
 global mod_commands
 mod_commands = ["emoji", "text", "nsfw", "kick"]
-bot = commands.Bot(prefix=prefix)
+bot = commands.Bot(command_prefix=prefix)
 bot.remove_command("help")
 
 @bot.event
