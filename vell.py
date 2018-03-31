@@ -59,7 +59,7 @@ async def on_member_remove(member):
 async def help(ctx):
     embed = discord.Embed(title="Vell Bot Help Menu", description="Here you will find all the help you need. Not satisfied? Type join.supportserver, to join our Official Support Server.", color=0x00a0ea)
     embed.add_field(name="My prefixes".format("null"), value="v. for general commands|join. for joining support server|mod. for mod commands")
-    embed.set_thumbnail(url = "https://ibb.co/c1yBAS")
+    embed.set_thumbnail(url = "[url=https://ibb.co/c1yBAS][img]https://thumb.ibb.co/c1yBAS/icon.jpg[/img][/url]")
     embed.add_field(name="Miscellaneous Commands".format("null"), value=misc_commands, inline=False)
     embed.add_field(name="Music Commands".format("null"), value=music_commands, inline=False)
     embed.add_field(name="Commands Help".format("null"), value=command_help)
