@@ -4,3 +4,4 @@ pip
 cffi==1.6.0; 
 requests
 ffmpeg
+opus
